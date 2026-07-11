@@ -1,0 +1,555 @@
+{
+  "business": {
+    "name": "Acuario Nébula",
+    "tagline": "Tu mundo acuático, con asesoría experta",
+    "type": "tienda especializada en acuariofilia y aquascaping",
+    "foundedYear": 2016,
+    "owner": "Daniela Ríos",
+    "ownerExperienceYears": 14,
+    "specialty": "Peces tropicales y vivíparos, plantas naturales, aquascaping, filtración, químicos y kits de inicio para principiantes y acuaristas avanzados"
+  },
+  "contact": {
+    "address": "Carrera 70 #44-18, Local 3",
+    "neighborhood": "Laureles",
+    "city": "Medellín, Colombia",
+    "phone": "+57 604 448 2210",
+    "whatsapp": "+57 301 552 7788",
+    "email": "hola@acuarionebula.co",
+    "instagram": "@acuarionebula",
+    "website": "https://acuarionebula.co"
+  },
+  "hours": {
+    "weekdays": "Lunes a viernes: 9:00 a.m. – 7:00 p.m.",
+    "saturday": "Sábado: 9:00 a.m. – 6:00 p.m.",
+    "sunday": "Domingo: 10:00 a.m. – 2:00 p.m. (solo accesorios y alimentos; sin venta de peces vivos)",
+    "holidays": "Festivos: 10:00 a.m. – 2:00 p.m. solo accesorios (excepto 25 dic y 1 ene, cerrado)",
+    "liveFishPickupBestTimes": "Mejor horario para retirar peces vivos: martes a sábado entre 10:00 a.m. y 4:00 p.m., cuando el acuario de venta está estabilizado",
+    "closedDates": [
+      "1 de enero",
+      "Domingo de Pascua",
+      "1 de mayo",
+      "20 de julio",
+      "7 de agosto",
+      "8 de diciembre",
+      "25 de diciembre"
+    ]
+  },
+  "speciesAvailability": [
+    {
+      "name": "Guppy de velo (Poecilia reticulata)",
+      "status": "disponible",
+      "priceCop": 9500,
+      "notes": "Machos y hembras surtidos; venta mínima 3 unidades",
+      "imageUrl": "/img/species/guppy-de-velo-poecilia-reticulata.jpg",
+      "category": "Vivíparos",
+      "originalPriceCop": 12000
+    },
+    {
+      "name": "Molly balón negro (Poecilia sphenops)",
+      "status": "disponible",
+      "priceCop": 8500,
+      "notes": "Venta mínima 2 unidades; tolerante para principiantes",
+      "imageUrl": "/img/species/molly-balon-negro-poecilia-sphenops.jpg",
+      "category": "Vivíparos"
+    },
+    {
+      "name": "Betta Halfmoon (macho)",
+      "status": "disponible",
+      "priceCop": 38000,
+      "notes": "Colores surtidos; un macho por pecera",
+      "imageUrl": "/img/species/betta-halfmoon-macho.jpg",
+      "category": "Bettas"
+    },
+    {
+      "name": "Tetra neón (Paracheirodon innesi)",
+      "status": "disponible",
+      "priceCop": 5500,
+      "notes": "Venta mínima 6 unidades",
+      "imageUrl": "/img/species/tetra-neon-paracheirodon-innesi.jpg",
+      "category": "Tetras y cardumen",
+      "originalPriceCop": 7000
+    },
+    {
+      "name": "Tetra rubí (Axelrodia riesei)",
+      "status": "disponible",
+      "priceCop": 5000,
+      "notes": "Ideal para nanoacuarios; venta mínima 6 unidades",
+      "imageUrl": "/img/species/tetra-rubi-axelrodia-riesei.jpg",
+      "category": "Tetras y cardumen"
+    },
+    {
+      "name": "Escalar / pez ángel (Pterophyllum scalare)",
+      "status": "agotado",
+      "priceCop": 32000,
+      "notes": "Próximo reabastecimiento: 18 de julio de 2026",
+      "imageUrl": "/img/species/escalar-pez-angel-pterophyllum-scalare.jpg",
+      "category": "Cíclidos"
+    },
+    {
+      "name": "Cíclido enano Ramirezi",
+      "status": "por_encargo",
+      "priceCop": 36000,
+      "notes": "Solo por encargo; tiempo estimado 10–14 días",
+      "imageUrl": "/img/species/ciclido-enano-ramirezi.jpg",
+      "category": "Cíclidos"
+    },
+    {
+      "name": "Corydoras paleatus",
+      "status": "agotado",
+      "priceCop": 14000,
+      "notes": "Próximo reabastecimiento: 25 de julio de 2026; venta mínima 3 unidades",
+      "imageUrl": "/img/species/corydoras-paleatus.jpg",
+      "category": "Fondo y limpieza"
+    },
+    {
+      "name": "Otocinclus affinis",
+      "status": "disponible",
+      "priceCop": 7500,
+      "notes": "Excelente limpiador de algas; venta mínima 3 unidades",
+      "imageUrl": "/img/species/otocinclus-affinis.jpg",
+      "category": "Fondo y limpieza"
+    },
+    {
+      "name": "Camarón Neocaridina",
+      "status": "disponible",
+      "priceCop": 9500,
+      "notes": "Colores surtidos; stock limitado (~20 unidades)",
+      "imageUrl": "/img/species/camaron-neocaridina.jpg",
+      "category": "Invertebrados",
+      "originalPriceCop": 12500
+    },
+    {
+      "name": "Caracol Nerita",
+      "status": "disponible",
+      "priceCop": 8500,
+      "notes": "Excelente para control de algas en acuarios plantados",
+      "imageUrl": "/img/species/caracol-nerita.jpg",
+      "category": "Invertebrados"
+    },
+    {
+      "name": "Plecostomus (Ancistrus)",
+      "status": "disponible",
+      "priceCop": 16000,
+      "notes": "Tamaño juvenil; requiere madera en el acuario",
+      "imageUrl": "/img/species/plecostomus-ancistrus.jpg",
+      "category": "Fondo y limpieza"
+    },
+    {
+      "name": "Koi ornamental (Cyprinus carpio)",
+      "status": "temporada",
+      "priceCop": 58000,
+      "notes": "Disponible de marzo a junio; fuera de temporada solo por encargo",
+      "imageUrl": "/img/species/koi-ornamental-cyprinus-carpio.jpg",
+      "category": "Agua fría"
+    }
+  ],
+  "productAvailability": [
+    {
+      "name": "Kit Iniciación Nébula 40L",
+      "status": "disponible",
+      "priceCop": 298000,
+      "notes": "Incluye acuario, filtro interno, calentador, sustrato, bacterias nitrificantes y guía de ciclado"
+    },
+    {
+      "name": "Kit Betta Compacto 20L",
+      "status": "disponible",
+      "priceCop": 169000,
+      "notes": "Ideal para un betta en escritorio u oficina"
+    },
+    {
+      "name": "Kit Aquascaping Plantado 60L",
+      "status": "disponible",
+      "priceCop": 565000,
+      "notes": "Incluye 4 plantas naturales, sustrato nutritivo y herramientas de aquascaping"
+    },
+    {
+      "name": "Filtro externo tipo mochila (hasta 100L)",
+      "status": "disponible",
+      "priceCop": 98000,
+      "notes": "Silencioso, fácil mantenimiento"
+    },
+    {
+      "name": "Filtro interno de esponja (hasta 40L)",
+      "status": "disponible",
+      "priceCop": 42000,
+      "notes": "Flujo suave; ideal para bettas y gambarios"
+    },
+    {
+      "name": "Calentador sumergible 100W con termostato",
+      "status": "disponible",
+      "priceCop": 62000,
+      "notes": "Para acuarios de 60 a 120L"
+    },
+    {
+      "name": "Pantalla LED full spectrum 45cm",
+      "status": "agotado",
+      "priceCop": 138000,
+      "notes": "Próximo reabastecimiento: 20 de julio de 2026"
+    },
+    {
+      "name": "Motor de aire silencioso con difusor",
+      "status": "disponible",
+      "priceCop": 48000,
+      "notes": "Oxigenación extra para acuarios con muchos peces"
+    },
+    {
+      "name": "Acondicionador de agua anticloro 250ml",
+      "status": "disponible",
+      "priceCop": 28000,
+      "notes": "Neutraliza cloro y metales pesados del agua de la llave"
+    },
+    {
+      "name": "Bacterias nitrificantes líquidas 30ml",
+      "status": "disponible",
+      "priceCop": 22000,
+      "notes": "Acelera el ciclado del acuario; uso en kits de inicio"
+    },
+    {
+      "name": "Alimento en gránulos tropical 100g",
+      "status": "agotado",
+      "priceCop": 24000,
+      "notes": "Próximo reabastecimiento: 15 de julio de 2026"
+    },
+    {
+      "name": "Kit de test de agua (pH, amoniaco, nitritos, nitratos)",
+      "status": "disponible",
+      "priceCop": 85000,
+      "notes": "Reactivos líquidos para monitorear parámetros clave"
+    },
+    {
+      "name": "Sustrato nutritivo para plantas 5kg",
+      "status": "disponible",
+      "priceCop": 72000,
+      "notes": "Base rica en nutrientes para acuarios plantados"
+    },
+    {
+      "name": "Planta Anubias nana en maceta",
+      "status": "disponible",
+      "priceCop": 18000,
+      "notes": "Planta de bajo requerimiento; ideal para principiantes"
+    }
+  ],
+  "specialOrdersPolicy": {
+    "depositPercent": 40,
+    "minDays": 7,
+    "maxDays": 21,
+    "requestVia": [
+      "WhatsApp al +57 301 552 7788",
+      "Formulario web: https://acuarionebula.co/encargo"
+    ],
+    "orderFormUrl": "https://acuarionebula.co/encargo",
+    "whatCanBeOrdered": [
+      "Especies de peces no listadas o agotadas",
+      "Peces amazónicos y cíclidos de importación",
+      "Plantas acuáticas específicas e in vitro",
+      "Kits, acuarios y urnas fuera de stock",
+      "Filtros, calentadores, iluminación y kits CO₂ agotados",
+      "Alimentos especializados y medicamentos por importación"
+    ],
+    "cancellationPolicy": "Si cancelas antes de confirmar con el proveedor, reembolsamos el 100% del anticipo. Después de confirmar, el anticipo no es reembolsable",
+    "pickupPolicy": "Debes retirar peces vivos dentro de 48 horas tras aviso por WhatsApp; pasado ese plazo puede aplicarse cargo de bodegaje"
+  },
+  "fishCategories": [
+    {
+      "name": "Vivíparos y peces para principiantes",
+      "examples": [
+        "Guppy",
+        "Molly",
+        "Platy",
+        "Espada"
+      ],
+      "priceRangeCop": "$4.000 – $12.000 por pez",
+      "careLevel": "Fácil",
+      "minTankLiters": 40,
+      "notes": "Resistentes y tolerantes; los más vendidos en tiendas de Medellín para quien inicia"
+    },
+    {
+      "name": "Bettas",
+      "examples": [
+        "Betta Halfmoon",
+        "Betta Plakat",
+        "Betta Dumbo",
+        "Betta Koi"
+      ],
+      "priceRangeCop": "$10.000 – $45.000 por ejemplar",
+      "careLevel": "Fácil a intermedio",
+      "minTankLiters": 20,
+      "notes": "Los machos deben vivir solos; requieren agua tibia (26–28°C) y filtración suave"
+    },
+    {
+      "name": "Tetras y peces de cardumen",
+      "examples": [
+        "Tetra neón",
+        "Tetra cardenal",
+        "Tetra ember",
+        "Tetra rubí"
+      ],
+      "priceRangeCop": "$5.000 – $12.000 por pez",
+      "careLevel": "Intermedio",
+      "minTankLiters": 60,
+      "notes": "Se venden en grupos de mínimo 6 para comportamiento natural de cardumen"
+    },
+    {
+      "name": "Rasboras y barbos",
+      "examples": [
+        "Rasbora arlequín",
+        "Barbo sumatra",
+        "Rasbora espejito"
+      ],
+      "priceRangeCop": "$6.000 – $15.000 por pez",
+      "careLevel": "Intermedio",
+      "minTankLiters": 80,
+      "notes": "Activos y coloridos; algunos barbos pueden morder aletas largas"
+    },
+    {
+      "name": "Cíclidos enanos y escalares",
+      "examples": [
+        "Cíclido enano Ramirezi",
+        "Escalar (pez ángel)",
+        "Apistogramma"
+      ],
+      "priceRangeCop": "$28.000 – $90.000 por ejemplar",
+      "careLevel": "Intermedio a avanzado",
+      "minTankLiters": 120,
+      "notes": "Territoriales; requieren asesoría de compatibilidad antes de la compra"
+    },
+    {
+      "name": "Peces de fondo y limpieza",
+      "examples": [
+        "Corydoras",
+        "Ancistrus",
+        "Otocinclus",
+        "Plecostomus"
+      ],
+      "priceRangeCop": "$7.000 – $45.000 por pez",
+      "careLevel": "Fácil a intermedio",
+      "minTankLiters": 60,
+      "notes": "Controlan algas y restos; las Corydoras y Otocinclus viven en grupo"
+    },
+    {
+      "name": "Camarones, caracoles y otros invertebrados",
+      "examples": [
+        "Neocaridina",
+        "Caridina",
+        "Caracol Nerita",
+        "Caracol Helena"
+      ],
+      "priceRangeCop": "$8.000 – $25.000 por unidad",
+      "careLevel": "Intermedio",
+      "minTankLiters": 20,
+      "notes": "Excelentes en acuarios plantados; sensibles al cobre y cambios bruscos de agua"
+    },
+    {
+      "name": "Agua fría y estanque",
+      "examples": [
+        "Goldfish cometa",
+        "Koi ornamental",
+        "Cíclidos del lago"
+      ],
+      "priceRangeCop": "$15.000 – $120.000 por ejemplar",
+      "careLevel": "Intermedio a avanzado",
+      "minTankLiters": 200,
+      "notes": "Koi y goldfish grandes requieren estanque o acuario de alto volumen"
+    }
+  ],
+  "starterKits": [
+    {
+      "name": "Kit Iniciación Nébula 40L",
+      "priceCop": 298000,
+      "tankLiters": 40,
+      "includes": [
+        "Acuario de vidrio 40L con tapa",
+        "Filtro interno con caudal ajustable",
+        "Calentador 50W con termostato",
+        "Sustrato de grava natural",
+        "Bacterias nitrificantes 30ml",
+        "Acondicionador anticloro 30ml",
+        "Guía de ciclado impresa"
+      ],
+      "idealFor": "Primer acuario con guppys, mollys o un cardumen pequeño de tetras",
+      "imageUrl": "/img/kit-iniciacion.jpg"
+    },
+    {
+      "name": "Kit Betta Compacto 20L",
+      "priceCop": 169000,
+      "tankLiters": 20,
+      "includes": [
+        "Acuario 20L con tapa y luz LED",
+        "Filtro esponja de flujo suave",
+        "Calentador 25W",
+        "Termómetro de pegar",
+        "Acondicionador anticloro 30ml",
+        "Planta Anubias nana"
+      ],
+      "idealFor": "Un betta macho en escritorio u oficina",
+      "imageUrl": "/img/kit-betta.jpg"
+    },
+    {
+      "name": "Kit Aquascaping Plantado 60L",
+      "priceCop": 565000,
+      "tankLiters": 60,
+      "includes": [
+        "Acuario 60L de bajo iluminado",
+        "Pantalla LED full spectrum",
+        "Filtro externo tipo mochila",
+        "Sustrato nutritivo para plantas 5kg",
+        "Set de 4 plantas naturales surtidas",
+        "Kit de herramientas de aquascaping"
+      ],
+      "idealFor": "Quien quiere un acuario plantado con tetras, rasboras y camarones",
+      "imageUrl": "/img/kit-aquascaping.jpg"
+    }
+  ],
+  "supplies": [
+    {
+      "name": "Filtro externo tipo mochila (hasta 100L)",
+      "category": "Filtración",
+      "priceCop": 98000,
+      "description": "Filtración mecánica y biológica, silencioso, fácil mantenimiento"
+    },
+    {
+      "name": "Filtro interno de esponja (hasta 40L)",
+      "category": "Filtración",
+      "priceCop": 42000,
+      "description": "Flujo suave; recomendado para bettas, alevines y gambarios"
+    },
+    {
+      "name": "Calentador sumergible 100W con termostato",
+      "category": "Climatización",
+      "priceCop": 62000,
+      "description": "Para acuarios de 60 a 120L, mantiene temperatura estable 24–28°C"
+    },
+    {
+      "name": "Pantalla LED full spectrum 45cm",
+      "category": "Iluminación",
+      "priceCop": 138000,
+      "description": "Ideal para acuarios plantados, favorece el crecimiento de plantas"
+    },
+    {
+      "name": "Motor de aire silencioso con difusor",
+      "category": "Oxigenación",
+      "priceCop": 48000,
+      "description": "Aumenta oxígeno disuelto; útil en acuarios con alta carga biológica"
+    },
+    {
+      "name": "Acondicionador de agua anticloro 250ml",
+      "category": "Tratamiento de agua",
+      "priceCop": 28000,
+      "description": "Neutraliza cloro y metales pesados del agua de la llave"
+    },
+    {
+      "name": "Bacterias nitrificantes líquidas 30ml",
+      "category": "Tratamiento de agua",
+      "priceCop": 22000,
+      "description": "Establece colonias bacterianas para acelerar el ciclado del acuario"
+    },
+    {
+      "name": "Alimento en gránulos tropical 100g",
+      "category": "Alimentación",
+      "priceCop": 24000,
+      "description": "Alimento balanceado para peces tropicales de agua dulce comunitarios"
+    },
+    {
+      "name": "Kit de test de agua (pH, amoniaco, nitritos, nitratos)",
+      "category": "Análisis de agua",
+      "priceCop": 85000,
+      "description": "Reactivos líquidos para monitorear los parámetros clave del acuario"
+    },
+    {
+      "name": "Sustrato nutritivo para plantas 5kg",
+      "category": "Aquascaping",
+      "priceCop": 72000,
+      "description": "Base rica en nutrientes para acuarios plantados de bajo a medio requerimiento"
+    },
+    {
+      "name": "Planta Anubias nana en maceta",
+      "category": "Plantas acuáticas",
+      "priceCop": 18000,
+      "description": "Planta de rizoma de bajo requerimiento; se ata a madera o roca"
+    }
+  ],
+  "policies": {
+    "shipping": "Envío de equipos y accesorios a toda Colombia por transportadora (2–5 días hábiles). Envío gratis en compras superiores a $200.000",
+    "liveFishShipping": "Envío de peces vivos a ciudades principales de Colombia con tarifa fija de $35.000 (incluye embalaje oxigenado). Dentro del Valle de Aburrá: mensajería especializada el mismo día de la compra",
+    "returns": "Aceptamos devolución de accesorios sin uso dentro de 8 días con factura. Los peces vivos y plantas no tienen devolución por cambio de opinión",
+    "liveFishGuarantee": "Garantía de llegada con vida de 48 horas en peces: si un pez muere en ese periodo y compartes fotos y tus parámetros de agua, lo reponemos sin costo",
+    "waterAdvice": "La asesoría de calidad de agua es orientativa y gratuita; para diagnósticos precisos recomendamos traer una muestra de agua a la tienda o usar un kit de test",
+    "acclimation": "Entregamos guía de aclimatación con cada compra de peces: flotar la bolsa 15–20 minutos y agregar agua del acuario poco a poco antes de liberar"
+  },
+  "payment": {
+    "methods": [
+      "Efectivo",
+      "Nequi",
+      "Daviplata",
+      "Tarjetas Visa y Mastercard",
+      "Transferencia PSE"
+    ],
+    "currency": "COP (pesos colombianos)",
+    "financing": "Compras superiores a $400.000 pueden diferirse a 3 cuotas con tarjeta de crédito"
+  },
+  "faq": [
+    {
+      "question": "¿Qué acuario necesito para empezar?",
+      "answer": "Recomendamos mínimo 40L para principiantes; entre más volumen, más estable es el agua. El Kit Iniciación Nébula 40L trae todo lo esencial"
+    },
+    {
+      "question": "¿Cuántos peces puedo tener en mi acuario?",
+      "answer": "Como guía general, 1 cm de pez adulto por litro de agua, pero depende de la especie y la filtración. Con gusto te asesoramos según tu acuario"
+    },
+    {
+      "question": "¿Puedo mezclar cualquier pez?",
+      "answer": "No; hay especies territoriales o incompatibles por temperatura y comportamiento. Antes de comprar te ayudamos a armar una comunidad compatible"
+    },
+    {
+      "question": "¿Necesito ciclar el acuario antes de meter peces?",
+      "answer": "Sí, el ciclado del acuario toma de 2 a 4 semanas para establecer bacterias beneficiosas. Cada kit incluye una guía de ciclado"
+    },
+    {
+      "question": "¿Cada cuánto debo cambiar el agua?",
+      "answer": "Un cambio parcial del 20–30% cada semana es lo ideal para la mayoría de acuarios de agua dulce"
+    },
+    {
+      "question": "¿Venden plantas naturales?",
+      "answer": "Sí, tenemos plantas de bajo y medio requerimiento como Anubias, y el Kit Aquascaping Plantado 60L incluye 4 plantas surtidas. También hacemos encargos de especies específicas"
+    },
+    {
+      "question": "¿Cuánto cuesta el envío de peces vivos fuera de Medellín?",
+      "answer": "A ciudades principales de Colombia la tarifa fija es de $35.000 e incluye embalaje oxigenado. Escríbenos al WhatsApp para confirmar cobertura en tu ciudad"
+    },
+    {
+      "question": "¿Por qué debo comprar tetras o corydoras en grupo?",
+      "answer": "Son peces de cardumen que se estresan solos; en tiendas especializadas se venden en mínimo 6 tetras o 3 corydoras para que muestren su comportamiento natural"
+    }
+  ],
+  "tone": {
+    "style": "Cercano, didáctico y apasionado por la acuariofilia, como un acuarista de confianza",
+    "language": "Español colombiano, tuteo respetuoso (tú/usted según el cliente)",
+    "personality": [
+      "Paciente con principiantes",
+      "Experto y apasionado por los peces y el aquascaping",
+      "Nunca inventa especies, precios ni disponibilidad",
+      "Ofrece pedido por encargo cuando algo está agotado",
+      "Recomienda con honestidad y prioriza el bienestar animal"
+    ]
+  },
+  "testimonials": [
+    {
+      "author": "Camilo R.",
+      "location": "Envigado",
+      "rating": 5,
+      "text": "Compré el Kit Iniciación y me explicaron el ciclado con una paciencia infinita. Tres meses después el acuario sigue impecable y los guppys se reprodujeron."
+    },
+    {
+      "author": "Valentina M.",
+      "location": "Laureles",
+      "rating": 5,
+      "text": "Pedí unos tetras neón por WhatsApp y llegaron con oxígeno el mismo día. Uno no sobrevivió y me lo repusieron sin pelear, tal como prometen."
+    },
+    {
+      "author": "Andrés G.",
+      "location": "Sabaneta",
+      "rating": 4,
+      "text": "La asesoría de compatibilidad me evitó un error caro: quería meter un escalar con camarones. Me explicaron por qué no y me armaron una comunidad que sí funciona."
+    }
+  ]
+}

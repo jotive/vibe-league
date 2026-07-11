@@ -1,0 +1,33 @@
+---
+description: Estándares core de código para Vibe League
+alwaysApply: true
+---
+
+# Vibe League — Estándares core
+
+## Sin comentarios en código
+
+- No docstrings, comentarios de línea ni bloques `/* */` en código fuente.
+- El código debe ser autoexplicativo con nombres claros y estructura simple.
+- Excepción: archivos generados por herramientas (p. ej. `next-env.d.ts`).
+
+## Idiomas
+
+| Ámbito | Idioma |
+|--------|--------|
+| Variables, funciones, clases, tipos, archivos | Inglés |
+| Texto de UI, mensajes al usuario, README, docs | Español |
+| Prompts del asistente y base de conocimiento | Español |
+
+## Código semántico
+
+- Nombres descriptivos: `buildSystemPrompt`, no `getPrompt`.
+- Funciones pequeñas con una responsabilidad clara.
+- Early returns para reducir anidación.
+- Sin números mágicos: usar constantes con nombre.
+- Eliminar imports y variables sin uso.
+
+## Alcance mínimo
+
+- Cambios focalizados; no refactorizar código no relacionado.
+- No sobre-ingeniería: extraer solo cuando mejore legibilidad o SRP de forma evidente.

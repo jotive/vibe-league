@@ -1,0 +1,61 @@
+---
+description: Arquitectura frontend — Zustand, Tailwind, capas
+globs: "proyecto-01-asistente-negocio/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Arquitectura frontend (Proyecto 1)
+
+## Stack
+
+- **Zustand** — estado global de UI (`stores/`)
+- **Tailwind CSS v4** — estilos utilitarios; tema en `app/globals.css`
+- **Next.js 15** — App Router
+
+## Estructura `src/`
+
+```
+config/       → configuración (env, OpenAI)
+constants/    → rutas API, HTTP status, textos UI (español)
+services/     → negocio, OpenAI, KB, chat-client
+handlers/     → error/response HTTP y errores de cliente
+stores/       → Zustand (messages, isLoading, error)
+components/   → UI de presentación
+app/          → páginas, layout, route.ts
+```
+
+## Capas (SRP)
+
+| Capa | Qué va aquí |
+|------|-------------|
+| `route.ts` | HTTP delgado: parsear, delegar, responder con handlers |
+| `handlers/` | `createErrorResponse`, `createChatReplyResponse`, `parseChatMessages`, `resolveClientError` |
+| `services/` | `generateChatReply`, `requestChatReply`, KB, system prompt |
+| `stores/` | Estado compartido; acciones como `sendMessage` |
+| `constants/` | Sin magic strings; mensajes de error y UI en español |
+| `components/` | JSX + Tailwind; consumen store, no fetch directo |
+
+## Patrones
+
+```typescript
+export async function POST(request: NextRequest) {
+  if (!process.env[ENV_KEYS.OPENAI_API_KEY]) {
+    return createErrorResponse(API_ERROR_MESSAGES.SERVICE_NOT_CONFIGURED, HTTP_STATUS.INTERNAL_SERVER_ERROR);
+  }
+  const messages = parseChatMessages(await request.json());
+  if (!messages) return createErrorResponse(API_ERROR_MESSAGES.MESSAGES_REQUIRED, HTTP_STATUS.BAD_REQUEST);
+  const reply = await generateChatReply(messages);
+  if (!reply) return createErrorResponse(API_ERROR_MESSAGES.REPLY_GENERATION_FAILED, HTTP_STATUS.BAD_GATEWAY);
+  return createChatReplyResponse(reply);
+}
+```
+
+- Estado de chat en `useChatStore`, no `useState` para messages/loading/error.
+- Cliente API en `services/chat-client.ts` con rutas de `constants/api-paths.ts`.
+- Errores de fetch vía `handlers/client-error-handler.ts`.
+
+## Estilos
+
+- Usar clases Tailwind en componentes.
+- Colores de marca en `@theme` de `globals.css`.
+- No añadir CSS custom en `globals.css` salvo base y tokens.

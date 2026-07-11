@@ -1,0 +1,46 @@
+---
+description: Convenciones TypeScript y Next.js en Vibe League
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TypeScript y Next.js
+
+## Separación de responsabilidades (SRP)
+
+| Capa | Responsabilidad |
+|------|-----------------|
+| `app/**/route.ts` | HTTP: parsear request, status codes, JSON response vía handlers |
+| `handlers/` | Respuestas estandarizadas, errores HTTP y parsing de errores en cliente |
+| `services/` | Lógica de negocio, validación, integraciones (OpenAI, KB) |
+| `stores/` | Estado global de UI con Zustand |
+| `constants/` | Rutas API, status codes, textos de UI (español) |
+| `config/` | Parámetros configurables (modelo, env keys) |
+| `components/` | Presentación; consumen stores y constants |
+| `data/*.json` | Datos del negocio (fuente de verdad) |
+| `schemas/knowledge-base.schema.ts` | Validación Zod y tipos de la KB |
+| `services/knowledge-base.loader.ts` | Carga y valida JSON al build |
+| `services/knowledge-base.formatter.ts` | Formateo de KB para prompts |
+
+## Patrones
+
+```typescript
+export async function POST(request: NextRequest) {
+  const messages = parseChatMessages(await request.json());
+  if (!messages) return createErrorResponse(API_ERROR_MESSAGES.MESSAGES_REQUIRED, HTTP_STATUS.BAD_REQUEST);
+  const reply = await generateChatReply(messages);
+  return createChatReplyResponse(reply);
+}
+```
+
+- Tipos compartidos en `services/` (p. ej. `chat-types.ts`), no duplicados entre route y cliente.
+- Cliente API en `services/chat-client.ts`; componentes no construyen URLs ni manejan errores HTTP en detalle.
+- Estado de chat en `stores/chat-store.ts` (Zustand), no `useState` para messages/loading/error.
+- Estilos con Tailwind CSS; tokens de marca en `app/globals.css`.
+
+## Errores
+
+- Mensajes de error al usuario en español (`constants/chat-ui.ts`).
+- API: `handlers/error-handler.ts` y `handlers/response-handler.ts`.
+- Cliente: `handlers/client-error-handler.ts`.
+- No tragar excepciones silenciosamente en rutas API.
