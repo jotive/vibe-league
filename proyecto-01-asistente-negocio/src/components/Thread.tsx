@@ -33,7 +33,9 @@ function AssistantMessage() {
   return (
     <MessagePrimitive.Root className="flex justify-start animate-fade-in-up">
       <div className="max-w-[88%] rounded-2xl rounded-bl-sm border border-border bg-cream px-3.5 py-2.5 text-sm leading-relaxed text-text">
-        <MessagePrimitive.Parts components={{ Text: MarkdownText }} />
+        <MessagePrimitive.Parts
+          components={{ Text: MarkdownText, Empty: TypingDots }}
+        />
       </div>
     </MessagePrimitive.Root>
   );
@@ -41,7 +43,7 @@ function AssistantMessage() {
 
 function TypingDots() {
   return (
-    <div className="flex items-center gap-1.5 self-start rounded-2xl rounded-bl-sm border border-border bg-cream px-4 py-3">
+    <div className="flex items-center gap-1.5 py-1">
       <span className="sr-only">{lang.chat.typingIndicator}</span>
       {[0, 1, 2].map((dot) => (
         <span
@@ -57,18 +59,14 @@ function TypingDots() {
 
 export default function Thread() {
   return (
-    <ThreadPrimitive.Root className="flex h-full flex-col bg-white">
-      <ThreadPrimitive.Viewport className="flex flex-1 flex-col gap-3 overflow-y-auto p-4 scrollbar-slim">
+    <ThreadPrimitive.Root className="flex min-h-0 flex-1 flex-col bg-white">
+      <ThreadPrimitive.Viewport className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4 scrollbar-slim">
         <ThreadPrimitive.Messages
           components={{
             UserMessage,
             AssistantMessage,
           }}
         />
-
-        <ThreadPrimitive.If running>
-          <TypingDots />
-        </ThreadPrimitive.If>
 
         <ThreadPrimitive.If empty>
           <div className="flex flex-col gap-2">

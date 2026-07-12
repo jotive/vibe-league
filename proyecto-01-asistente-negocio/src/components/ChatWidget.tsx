@@ -43,9 +43,10 @@ export default function ChatWidget() {
 
         <AssistantModalPrimitive.Content
           sideOffset={16}
-          className="z-50 flex h-[560px] w-[390px] max-sm:h-[70vh] max-sm:w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-[0_24px_60px_rgba(29,43,33,0.28)] data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:animate-fade-in-up"
+          collisionPadding={16}
+          className="z-50 flex h-[560px] max-h-[var(--radix-popper-available-height)] w-[390px] max-sm:w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-[0_24px_60px_rgba(29,43,33,0.28)] data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:animate-fade-in-up"
         >
-          <header className="flex items-center gap-3 border-b border-border bg-water-dark px-4 py-3">
+          <header className="flex shrink-0 items-center gap-3 border-b border-border bg-water-dark px-4 py-3">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-plant text-lg">
               🐠
               <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-water-dark bg-stock" />
