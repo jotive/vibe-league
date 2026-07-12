@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0d1116;
+  --color-ink-soft: #1a222c;
+  --color-bg: #ffffff;
+  --color-paper: #f6f7f5;
+  --color-paper-warm: #f3efe7;
+  --color-brand: #16694a;
+  --color-brand-dark: #0f4c35;
+  --color-brand-soft: #e4f0ea;
+  --color-signal: #f0743a;
+  --color-signal-soft: #fdeee6;
+  --color-text: #17201b;
+  --color-text-muted: #5b6a61;
+  --color-text-faint: #8b9890;
+  --color-border: #e2e6e1;
+  --color-border-strong: #c7cec8;
+  --color-danger: #c0392b;
+
+  --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-bg text-text antialiased;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer utilities {
+  .shell {
+    @apply mx-auto w-full max-w-[1080px] px-6 max-md:px-4;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
