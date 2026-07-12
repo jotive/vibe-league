@@ -51,7 +51,7 @@ export function formatKnowledgeForPrompt(
   const kitsText = kb.starterKits
     .map(
       (k) =>
-        `- ${k.name}: $${k.priceCop.toLocaleString("es-CO")} (${k.tankLiters}L). Ideal: ${k.idealFor}`
+        `- ${k.name}: $${k.priceCop.toLocaleString("es-CO")} (${k.tankLiters}L). Incluye EXACTAMENTE: ${k.includes.join("; ")}. Ideal: ${k.idealFor}`
     )
     .join("\n");
 
@@ -61,6 +61,24 @@ export function formatKnowledgeForPrompt(
         `- ${f.name} (${f.examples.join(", ")}): ${f.priceRangeCop}, ${f.careLevel}, mín ${f.minTankLiters}L`
     )
     .join("\n");
+
+  const climate = kb.climateAdvice;
+
+  const climateText = climate
+    ? `
+
+CLIMA Y ALTITUD (clave para recomendar calentador según la ciudad del cliente):
+- Tienda: ${climate.storeCity}
+- Regla: ${climate.rule}
+${climate.cities
+  .map(
+    (c) =>
+      `- ${c.city} (${c.altitudeM} m, ${c.ambientC} °C): ${c.note}`
+  )
+  .join("\n")}
+- Alternativa en clima frío: ${climate.coldClimateAlternative}
+- ${climate.outOfCityNote}`
+    : "";
 
   const core = `
 NEGOCIO: ${kb.business.name} — ${kb.business.tagline}. ${kb.business.type}, propietaria ${kb.business.owner} (${kb.business.ownerExperienceYears} años).
@@ -93,7 +111,7 @@ POLÍTICAS:
 - Devoluciones: ${kb.policies.returns}
 - Aclimatación: ${kb.policies.acclimation}
 
-PAGOS: ${kb.payment.methods.join(", ")}. ${kb.payment.financing}
+PAGOS: ${kb.payment.methods.join(", ")}. ${kb.payment.financing}${climateText}
 `.trim();
 
   return core + formatDetails(retrieved);

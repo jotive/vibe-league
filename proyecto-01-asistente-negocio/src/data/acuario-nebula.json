@@ -551,5 +551,43 @@
       "rating": 4,
       "text": "La asesoría de compatibilidad me evitó un error caro: quería meter un escalar con camarones. Me explicaron por qué no y me armaron una comunidad que sí funciona."
     }
-  ]
+  ],
+  "climateAdvice": {
+    "storeCity": "Medellín (1.495 m, ~22–24 °C ambiente): la mayoría de tropicales se mantienen con poco o ningún calentador.",
+    "rule": "Los peces tropicales necesitan 24–28 °C. Potencia del calentador: aproximadamente 1 W por litro por cada 10 °C que haya que subir sobre la temperatura ambiente de la ciudad.",
+    "cities": [
+      {
+        "city": "Bogotá",
+        "altitudeM": 2600,
+        "ambientC": "8–19",
+        "note": "Clima frío: un acuario tropical REQUIERE calentador y de mayor potencia. Para 40 L calcula 80–100 W (el calentador de 50 W del Kit Iniciación se queda corto). Considera tapa para reducir pérdida de calor."
+      },
+      {
+        "city": "Medellín",
+        "altitudeM": 1495,
+        "ambientC": "17–28",
+        "note": "Clima templado: calentador opcional o de baja potencia."
+      },
+      {
+        "city": "Cali",
+        "altitudeM": 1018,
+        "ambientC": "19–30",
+        "note": "Clima cálido: normalmente no requiere calentador."
+      },
+      {
+        "city": "Barranquilla",
+        "altitudeM": 18,
+        "ambientC": "24–33",
+        "note": "Clima cálido: no requiere calentador; vigila el exceso de temperatura."
+      },
+      {
+        "city": "Tunja",
+        "altitudeM": 2820,
+        "ambientC": "6–17",
+        "note": "Clima muy frío: calentador de alta potencia indispensable."
+      }
+    ],
+    "coldClimateAlternative": "En ciudades frías, los peces de agua fría (goldfish) son una alternativa sin calentador, pero requieren más volumen de agua.",
+    "outOfCityNote": "Si el cliente NO está en el Valle de Aburrá, no lo cites a retirar en tienda: ofrece el envío de peces vivos con embalaje oxigenado."
+  }
 }

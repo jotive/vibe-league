@@ -54,6 +54,21 @@ export const faqItemSchema = z.object({
   answer: z.string(),
 });
 
+export const climateAdviceSchema = z.object({
+  storeCity: z.string(),
+  rule: z.string(),
+  cities: z.array(
+    z.object({
+      city: z.string(),
+      altitudeM: z.number(),
+      ambientC: z.string(),
+      note: z.string(),
+    })
+  ),
+  coldClimateAlternative: z.string(),
+  outOfCityNote: z.string(),
+});
+
 export const knowledgeBaseSchema = z.object({
   business: z.object({
     name: z.string(),
@@ -111,6 +126,7 @@ export const knowledgeBaseSchema = z.object({
     financing: z.string(),
   }),
   faq: z.array(faqItemSchema),
+  climateAdvice: climateAdviceSchema.optional(),
   testimonials: z.array(testimonialSchema).optional(),
   tone: z.object({
     style: z.string(),
