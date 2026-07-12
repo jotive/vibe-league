@@ -79,6 +79,40 @@ export const es = {
       return `¡Hola! Soy el asistente de ${businessName}. Pregúntame sobre disponibilidad de especies y productos, horarios, pedidos por encargo o políticas. Si no sé algo, te lo digo con honestidad.`;
     },
   },
+  admin: {
+    authRequired: "Acceso restringido. Este panel es de uso interno.",
+    title: "Panel del negocio",
+    subtitle:
+      "Qué preguntan los clientes, qué no supo responder el asistente y cuánto cuesta atenderlos.",
+    backToStore: "← Volver a la tienda",
+    notConfigured:
+      "Sin DATABASE_URL configurada: no hay traza de consultas todavía.",
+    metricQueries: "Consultas",
+    metricSessionsHint: "conversaciones distintas",
+    metricCost: "Costo acumulado",
+    metricPerQuery: "por consulta",
+    metricAnswerRate: "Tasa de respuesta",
+    metricDeflectionHint: "consultas sin dato en la KB",
+    metricLatency: "Latencia promedio",
+    metricCacheHint: "resueltas desde caché (costo cero)",
+    metricPromptTokens: "Tokens de entrada",
+    metricPromptTokensHint:
+      "Es el grueso del costo: la base de conocimiento viaja en cada pregunta.",
+    metricCompletionTokens: "Tokens de salida",
+    metricErrors: "Errores",
+    metricErrorsHint: "fallos del proveedor tras agotar la cadena de respaldo",
+    unansweredTitle: "Lo que el asistente NO supo responder",
+    unansweredDescription:
+      "Cada una es una venta que se pudo perder. Agrégalas a la base de conocimiento.",
+    unansweredEmpty: "Todavía no hay consultas sin respuesta.",
+    topTitle: "Preguntas más frecuentes",
+    topDescription:
+      "Lo que más le interesa a tus clientes. Útil para decidir qué destacar en la tienda.",
+    topEmpty: "Todavía no hay consultas registradas.",
+    dailyTitle: "Consumo por día",
+    dailyDescription: "Consultas y costo diario en dólares.",
+    dailyEmpty: "Sin datos de consumo todavía.",
+  },
   errors: {
     messagesRequired: "Se requiere al menos un mensaje.",
     replyGenerationFailed: "No se pudo generar una respuesta.",
