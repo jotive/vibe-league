@@ -73,14 +73,14 @@ export async function runPipeline(lead: LeadPayload): Promise<number> {
 
   try {
     const qualifyStart = Date.now();
-    const qualification = await qualifyLead(lead);
+    const { qualification, usedFallback } = await qualifyLead(lead);
 
     await logStep(
       runId,
       2,
       STEPS[1],
       "ok",
-      `${qualification.score}/100 · ${qualification.temperature} — ${qualification.reasoning}`,
+      `${qualification.score}/100 · ${qualification.temperature}${usedFallback ? " (reglas fijas: la IA no respondió)" : ""} — ${qualification.reasoning}`,
       Date.now() - qualifyStart
     );
 
