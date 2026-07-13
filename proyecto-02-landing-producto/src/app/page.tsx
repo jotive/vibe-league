@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import CatalogTransform from "@/components/CatalogTransform";
 import LeadForm from "@/components/LeadForm";
 import Reveal from "@/components/Reveal";
 import { PRODUCT } from "@/config/product";
@@ -100,32 +103,19 @@ export default async function HomePage() {
           </div>
 
           <Reveal delayMs={120}>
-            <div className="rounded-2xl border border-border bg-white p-5 shadow-[0_20px_50px_rgba(13,17,22,0.08)]">
-              <div className="flex flex-col gap-3">
-                <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm bg-ink px-4 py-2.5 text-[0.86rem] text-white">
-                  ¿Tienen pez ángel? ¿Cuánto vale?
-                </div>
-
-                <div className="max-w-[88%] rounded-2xl rounded-bl-sm bg-paper px-4 py-2.5 text-[0.86rem] leading-relaxed text-text">
-                  El pez ángel está <strong>agotado</strong>. Su precio es
-                  $32.000. El próximo reabastecimiento es el 18 de julio.
-                  ¿Quieres que te lo encargue?
-                </div>
-
-                <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm bg-ink px-4 py-2.5 text-[0.86rem] text-white">
-                  ¿Y peces marinos?
-                </div>
-
-                <div className="max-w-[88%] rounded-2xl rounded-bl-sm border border-signal/30 bg-signal-soft px-4 py-2.5 text-[0.86rem] leading-relaxed text-text">
-                  No tengo esa información. Te recomiendo escribirnos al
-                  WhatsApp y con gusto te ayudamos.
-                </div>
-
-                <p className="mt-1 text-center text-[0.72rem] font-medium text-text-faint">
-                  ↑ Respuestas reales del demo. La segunda es la importante.
-                </p>
-              </div>
-            </div>
+            <figure className="flex flex-col gap-3">
+              <Image
+                src="/img/demo-stock.png"
+                alt="El asistente responde que el Betta Halfmoon cuesta $38.000"
+                width={780}
+                height={420}
+                priority
+                className="w-full rounded-2xl border border-border shadow-[0_20px_50px_rgba(13,17,22,0.12)]"
+              />
+              <figcaption className="text-center text-[0.75rem] font-medium text-text-faint">
+                {lang.hero.screenshotCaption}
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
@@ -175,19 +165,18 @@ export default async function HomePage() {
 
           <Reveal delayMs={140}>
             <div className="mt-4 grid grid-cols-2 gap-6 max-lg:grid-cols-1">
-              <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                <div className="flex flex-col gap-3">
-                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm bg-white/15 px-4 py-2.5 text-[0.88rem]">
-                    {lang.trust.exampleQuestion}
-                  </div>
-                  <div className="max-w-[90%] rounded-2xl rounded-bl-sm bg-signal px-4 py-2.5 text-[0.88rem] leading-relaxed text-white">
-                    {lang.trust.exampleAnswer}
-                  </div>
-                  <p className="mt-1 text-[0.75rem] text-white/50">
-                    {lang.trust.exampleCaption}
-                  </p>
-                </div>
-              </div>
+              <figure className="flex flex-col gap-2.5">
+                <Image
+                  src="/img/demo-nose.png"
+                  alt="Ante una pregunta que no está en su catálogo, el asistente responde que no tiene esa información"
+                  width={780}
+                  height={300}
+                  className="w-full rounded-2xl border border-white/15"
+                />
+                <figcaption className="text-[0.75rem] text-white/50">
+                  {lang.trust.exampleCaption}
+                </figcaption>
+              </figure>
 
               <div className="flex flex-col gap-2 rounded-2xl border border-white/15 p-6">
                 <h3 className="text-[1rem] font-bold text-white">
@@ -249,6 +238,23 @@ export default async function HomePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="shell py-20 max-md:py-14">
+        <div className="flex flex-col gap-8">
+          <Reveal>
+            <div className="flex flex-col gap-4">
+              <SectionTitle>{lang.transform.title}</SectionTitle>
+              <p className="max-w-[660px] text-[1.02rem] leading-relaxed text-text-muted">
+                {lang.transform.body}
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delayMs={90}>
+            <CatalogTransform />
+          </Reveal>
         </div>
       </section>
 

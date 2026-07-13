@@ -17,6 +17,8 @@ export const es = {
     ctaPrimary: "Quiero mi cupo",
     ctaSecondary: "Probar el asistente",
     demoNote: "Demo real funcionando: una tienda de acuarios en Medellín.",
+    screenshotCaption:
+      "Captura real del asistente. Ese precio sale de su catálogo, no de su imaginación.",
   },
   proof: {
     title: "Esto no es una promesa. Es un asistente que ya funciona.",
@@ -83,6 +85,16 @@ export const es = {
         body: "En tu web y en tu WhatsApp. Cuando cambian los precios, lo actualizas y responde con los nuevos.",
       },
     ],
+  },
+  transform: {
+    title: "De la lista que te manda el proveedor, a un catálogo que responde.",
+    body: "Así llega el inventario en la vida real: un mensaje de WhatsApp con precios sueltos, promociones a mano y hasta un cero de más. Nosotros lo convertimos en un catálogo con precios, disponibilidad y reglas de venta.",
+    beforeLabel: "Lo que recibes hoy",
+    beforeCaption:
+      "Lista real de un proveedor. Sí, dice “15.0000”: así de imperfecto llega el inventario.",
+    afterLabel: "Lo que queda atendiendo",
+    afterCaption:
+      "Precios, disponibilidad y mínimos de venta. Es lo que el asistente lee antes de responderle a tu cliente.",
   },
   niche: {
     title: "Sabe de lo tuyo, no solo de vender.",
