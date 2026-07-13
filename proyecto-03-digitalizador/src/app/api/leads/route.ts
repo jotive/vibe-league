@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { HTTP_STATUS } from "@/constants/http-status";
 import { lang } from "@/lang";
 import { leadSchema } from "@/schemas/lead.schema";
+import { triggerAutomation } from "@/services/automation";
 import { saveLead } from "@/services/leads";
 
 export async function POST(request: NextRequest) {
@@ -33,6 +34,10 @@ export async function POST(request: NextRequest) {
         { error: lang.errors.leadFailed },
         { status: HTTP_STATUS.SERVICE_UNAVAILABLE }
       );
+    }
+
+    if (result.status === "saved") {
+      triggerAutomation(result.id, parsed.data);
     }
 
     return NextResponse.json({ status: result.status });

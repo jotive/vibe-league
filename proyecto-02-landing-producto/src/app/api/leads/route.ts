@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { HTTP_STATUS } from "@/constants/http-status";
 import { lang } from "@/lang";
 import { leadSchema } from "@/schemas/lead.schema";
+import { triggerAutomation } from "@/services/automation";
 import { saveLead } from "@/services/leads";
 
 export async function POST(request: NextRequest) {
@@ -42,6 +43,8 @@ export async function POST(request: NextRequest) {
     if (result.status === "duplicate") {
       return NextResponse.json({ status: "duplicate" });
     }
+
+    triggerAutomation(result.id, parsed.data);
 
     return NextResponse.json({ status: "saved", id: result.id });
   } catch (error) {
