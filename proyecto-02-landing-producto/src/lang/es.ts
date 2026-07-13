@@ -91,7 +91,7 @@ export const es = {
     body: "Así llega el inventario en la vida real: un mensaje de WhatsApp con precios sueltos, promociones a mano y hasta un cero de más. Nosotros lo convertimos en un catálogo con precios, disponibilidad y reglas de venta.",
     beforeLabel: "Lo que recibes hoy",
     beforeCaption:
-      "Lista real de un proveedor. Sí, dice “15.0000”: así de imperfecto llega el inventario.",
+      "Ejemplo con proveedor ficticio, calcado de una lista real. Sí, dice “15.0000”: así de imperfecto llega el inventario.",
     afterLabel: "Lo que queda atendiendo",
     afterCaption:
       "Precios, disponibilidad y mínimos de venta. Es lo que el asistente lee antes de responderle a tu cliente.",

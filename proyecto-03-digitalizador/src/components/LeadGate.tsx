@@ -6,7 +6,7 @@ import { lang } from "@/lang";
 import { NICHES } from "@/schemas/lead.schema";
 
 const INPUT =
-  "w-full rounded-lg border border-border-strong bg-white px-3.5 py-2.5 text-[0.9rem] outline-none transition-colors placeholder:text-text-faint focus:border-brand";
+  "w-full rounded-lg border border-hairline-strong bg-surface-high px-3.5 py-2.5 text-[0.9rem] outline-none transition-colors placeholder:text-ink-faint focus:border-accent";
 
 export default function LeadGate({
   parsedItems,
@@ -73,16 +73,16 @@ export default function LeadGate({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="flex flex-col gap-4 rounded-2xl border-2 border-brand bg-brand-soft/40 p-7 max-md:p-5"
+      className="flex flex-col gap-4 rounded-2xl border-2 border-accent bg-accent-soft/40 p-7 max-md:p-5"
     >
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-extrabold tracking-tight text-ink">
           {lang.gate.title}
         </h2>
-        <p className="text-[0.9rem] leading-relaxed text-text-muted">
+        <p className="text-[0.9rem] leading-relaxed text-ink-mute">
           {lang.gate.body}
         </p>
-        <p className="mt-1 rounded-lg border border-brand/30 bg-white px-3 py-2 text-[0.8rem] font-medium text-brand-dark">
+        <p className="mt-1 rounded-lg border border-accent/30 bg-surface-high px-3 py-2 text-[0.8rem] font-medium text-accent">
           {lang.gate.fair}
         </p>
       </div>
@@ -101,7 +101,7 @@ export default function LeadGate({
             className={INPUT}
           />
           {errors.fullName && (
-            <span role="alert" className="text-[0.72rem] text-danger">
+            <span role="alert" className="text-[0.72rem] text-error">
               {errors.fullName}
             </span>
           )}
@@ -121,7 +121,7 @@ export default function LeadGate({
             className={INPUT}
           />
           {errors.whatsapp && (
-            <span role="alert" className="text-[0.72rem] text-danger">
+            <span role="alert" className="text-[0.72rem] text-error">
               {errors.whatsapp}
             </span>
           )}
@@ -155,7 +155,7 @@ export default function LeadGate({
             ))}
           </select>
           {errors.niche && (
-            <span role="alert" className="text-[0.72rem] text-danger">
+            <span role="alert" className="text-[0.72rem] text-error">
               {errors.niche}
             </span>
           )}
@@ -165,7 +165,7 @@ export default function LeadGate({
       {formError && (
         <p
           role="alert"
-          className="rounded-lg border border-danger/30 bg-danger/5 px-3.5 py-2.5 text-[0.82rem] font-medium text-danger"
+          className="rounded-lg border border-error/30 bg-error/5 px-3.5 py-2.5 text-[0.82rem] font-medium text-error"
         >
           {formError}
         </p>
@@ -174,7 +174,7 @@ export default function LeadGate({
       <button
         type="submit"
         disabled={sending}
-        className="cursor-pointer rounded-lg bg-brand px-5 py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
+        className="cursor-pointer rounded-lg bg-accent px-5 py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {sending ? lang.gate.submitting : lang.gate.submit}
       </button>

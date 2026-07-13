@@ -19,6 +19,13 @@ export const es = {
     submit: "Digitalizar mi lista",
     submitting: "Leyendo tu lista...",
     hint: "No guardamos tu lista para nada distinto a mostrarte el resultado.",
+    steps: [
+      "Leyendo tu lista",
+      "Separando productos de saludos y horas",
+      "Normalizando precios a pesos",
+      "Buscando errores y precios raros",
+      "Armando tus mensajes",
+    ],
   },
   results: {
     title: "Tu catálogo, ordenado",
@@ -32,7 +39,10 @@ export const es = {
     noPrice: "sin precio",
     issuesTitle: "Encontramos cosas que conviene revisar",
     issuesBody:
-      "No las corregimos por ti: tu proveedor es quien manda. Te las señalamos para que las confirmes antes de mandarle esto a tus clientes.",
+      "No las corregimos solos: tu proveedor es quien manda. Te mostramos el arreglo y tú decides si lo aplicas.",
+    onlyIssues: "Ver solo lo que hay que revisar",
+    fixIt: "Corregir",
+    keepIt: "Está bien así",
     suggested(value: string): string {
       return `¿Querías decir ${value}?`;
     },

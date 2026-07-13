@@ -3,6 +3,7 @@ import { z } from "zod";
 export const catalogItemSchema = z.object({
   name: z.string(),
   priceCop: z.number().nullable(),
+  rawPrice: z.string().nullable(),
   category: z.string().nullable(),
   unit: z.string().nullable(),
   bundle: z.string().nullable(),

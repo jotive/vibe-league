@@ -29,28 +29,29 @@ function MessageCard({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between gap-3">
-        <span className="text-[0.75rem] font-bold text-text-muted">
+        <span className="text-[0.75rem] font-bold text-ink-mute">
           Mensaje {index + 1} · {title}
         </span>
 
         <button
           type="button"
           onClick={copy}
-          className="shrink-0 cursor-pointer rounded-md border border-border-strong bg-white px-2.5 py-1 text-[0.72rem] font-semibold text-text-muted transition-colors hover:border-brand hover:text-brand"
+          className="shrink-0 cursor-pointer rounded-md border border-hairline-strong bg-surface-high px-2.5 py-1 text-[0.72rem] font-semibold text-ink-mute transition-colors hover:border-accent hover:text-accent"
         >
           {copied ? lang.broadcast.copied : lang.broadcast.copyOne}
         </button>
       </div>
 
-      <div className="rounded-xl bg-wa-canvas p-3">
-        <div className="max-w-[95%] rounded-xl rounded-tl-sm bg-wa-bubble px-3 py-2.5 shadow-sm">
-          <pre className="whitespace-pre-wrap font-sans text-[0.8rem] leading-relaxed text-[#111b21]">
+      <div className="wa-canvas grain rounded-xl p-3">
+        <div className="max-w-[95%] rounded-xl rounded-tl-sm bg-wa-bubble px-3 py-2.5 shadow-lg">
+          <pre className="whitespace-pre-wrap font-sans text-[0.8rem] leading-relaxed text-[#0b141a]">
             {body}
           </pre>
+          <p className="mt-1 text-right text-[0.6rem] text-[#667781]">✓✓</p>
         </div>
       </div>
 
-      <span className="text-[0.7rem] text-text-faint">
+      <span className="text-[0.7rem] text-ink-faint">
         {charCount} {lang.broadcast.charsLabel} · {itemCount}{" "}
         {lang.broadcast.itemsInMessage}
       </span>
@@ -72,10 +73,10 @@ export default function BroadcastPlan({ plan }: { plan: Plan }) {
         <h2 className="text-xl font-extrabold tracking-tight text-ink">
           {lang.broadcast.title}
         </h2>
-        <p className="max-w-[640px] text-[0.9rem] leading-relaxed text-text-muted">
+        <p className="max-w-[640px] text-[0.9rem] leading-relaxed text-ink-mute">
           {intro}
         </p>
-        <span className="text-[0.78rem] font-semibold text-brand">
+        <span className="text-[0.78rem] font-semibold text-accent">
           {plan.messages.length} {lang.broadcast.messagesLabel}
         </span>
       </div>

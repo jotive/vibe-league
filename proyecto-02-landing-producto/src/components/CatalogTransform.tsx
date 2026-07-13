@@ -3,7 +3,7 @@ import Image from "next/image";
 import { lang } from "@/lang";
 
 const SUPPLIER_LINES = [
-  "LISTADO DE PECES",
+  "LISTA DE LA SEMANA",
   "Bailarina roja : 8.000 (en promoción)",
   "Golfish calico de velo: 6.000 (super promo)",
   "Monjitas color: 5.000 o 6 unidades x 25.000",
@@ -55,7 +55,7 @@ export default function CatalogTransform() {
         <div className="rounded-2xl bg-[#e5ddd5] p-4">
           <div className="max-w-[92%] rounded-xl rounded-tl-sm bg-white px-3.5 py-3 shadow-sm">
             <p className="mb-1.5 text-[0.7rem] font-bold text-brand">
-              Mundo Betta
+              Distribuidora Aquamar
             </p>
             <div className="flex flex-col gap-0.5">
               {SUPPLIER_LINES.map((line) => (
