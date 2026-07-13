@@ -1,0 +1,7 @@
+export const WHATSAPP = {
+  MAX_CHARS: 4096,
+  READABLE_CHARS: 900,
+  MAX_ITEMS_PER_MESSAGE: 10,
+  BROADCAST_LIST_LIMIT: 256,
+  DEFAULT_CATEGORY: "Productos",
+} as const;
