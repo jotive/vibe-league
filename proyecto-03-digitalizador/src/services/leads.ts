@@ -4,7 +4,7 @@ import { PROJECT_SLUG } from "@/config/product";
 import { LeadInput } from "@/schemas/lead.schema";
 
 export type SaveLeadResult =
-  | { status: "saved" }
+  | { status: "saved"; id: number }
   | { status: "duplicate" }
   | { status: "unavailable" };
 
@@ -45,8 +45,12 @@ export async function saveLead(lead: LeadInput): Promise<SaveLeadResult> {
     on conflict (project_slug, whatsapp) do update
       set parsed_items = excluded.parsed_items,
           parsed_issues = excluded.parsed_issues
-    returning (xmax = 0) as inserted
+    returning id, (xmax = 0) as inserted
   `;
 
-  return rows[0]?.inserted ? { status: "saved" } : { status: "duplicate" };
+  if (!rows[0]?.inserted) {
+    return { status: "duplicate" };
+  }
+
+  return { status: "saved", id: Number(rows[0].id) };
 }
