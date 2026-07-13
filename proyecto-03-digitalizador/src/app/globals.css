@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101418;
+  --color-bg: #ffffff;
+  --color-paper: #f5f6f4;
+  --color-wa: #075e54;
+  --color-wa-bubble: #e7ffdb;
+  --color-wa-canvas: #e5ddd5;
+  --color-brand: #16694a;
+  --color-brand-dark: #0f4c35;
+  --color-brand-soft: #e4f0ea;
+  --color-alert: #d97706;
+  --color-alert-soft: #fef3e2;
+  --color-danger: #c0392b;
+  --color-text: #17201b;
+  --color-text-muted: #5b6a61;
+  --color-text-faint: #8b9890;
+  --color-border: #e2e6e1;
+  --color-border-strong: #c7cec8;
+
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pulse-soft: pulse-soft 1.4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-bg text-text antialiased;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer utilities {
+  .shell {
+    @apply mx-auto w-full max-w-[980px] px-6 max-md:px-4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+      animation: none;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
