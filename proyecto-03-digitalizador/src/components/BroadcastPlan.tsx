@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { CheckIcon, CopyIcon } from "@/components/Icons";
 import { lang } from "@/lang";
 import { BroadcastPlan as Plan } from "@/services/broadcast-planner";
 
@@ -36,8 +37,9 @@ function MessageCard({
         <button
           type="button"
           onClick={copy}
-          className="shrink-0 cursor-pointer rounded-md border border-hairline-strong bg-surface-high px-2.5 py-1 text-[0.72rem] font-semibold text-ink-mute transition-colors hover:border-accent hover:text-accent"
+          className="flex shrink-0 cursor-pointer items-center gap-1 rounded-md border border-hairline-strong bg-surface-high px-2.5 py-1 text-[0.72rem] font-semibold text-ink-mute transition-colors hover:border-accent hover:text-accent"
         >
+          {copied ? <CheckIcon className="h-3.5 w-3.5 text-ok" /> : <CopyIcon className="h-3.5 w-3.5" />}
           {copied ? lang.broadcast.copied : lang.broadcast.copyOne}
         </button>
       </div>

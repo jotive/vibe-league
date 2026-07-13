@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 
+import { SendIcon } from "@/components/Icons";
 import { lang } from "@/lang";
 import { CatalogItem } from "@/schemas/catalog.schema";
 
@@ -145,8 +146,9 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
         <button
           type="submit"
           disabled={thinking || !input.trim()}
-          className="shrink-0 cursor-pointer rounded-lg bg-accent px-5 py-2.5 text-[0.88rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg bg-accent px-5 py-2.5 text-[0.88rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
         >
+          <SendIcon className="h-4 w-4" />
           {lang.chat.send}
         </button>
       </form>

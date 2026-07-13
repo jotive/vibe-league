@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
+import { ChatIcon } from "@/components/Icons";
 import { lang } from "@/lang";
 import { NICHES } from "@/schemas/lead.schema";
 
@@ -174,8 +175,9 @@ export default function LeadGate({
       <button
         type="submit"
         disabled={sending}
-        className="cursor-pointer rounded-lg bg-accent px-5 py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
+        <ChatIcon className="h-4.5 w-4.5" />
         {sending ? lang.gate.submitting : lang.gate.submit}
       </button>
     </form>

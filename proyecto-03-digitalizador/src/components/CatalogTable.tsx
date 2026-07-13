@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { AlertIcon } from "@/components/Icons";
+import { AlertIcon, CheckIcon, CloseIcon } from "@/components/Icons";
 import { lang } from "@/lang";
 import { CatalogItem } from "@/schemas/catalog.schema";
 
@@ -45,15 +45,17 @@ function FixCard({
             <button
               type="button"
               onClick={onFix}
-              className="cursor-pointer rounded-md bg-ok px-2.5 py-1 text-[0.72rem] font-bold text-white transition-opacity hover:opacity-90"
+              className="flex cursor-pointer items-center gap-1 rounded-md bg-ok px-2.5 py-1 text-[0.72rem] font-bold text-white transition-opacity hover:opacity-90"
             >
+              <CheckIcon className="h-3.5 w-3.5" />
               {lang.results.fixIt}
             </button>
             <button
               type="button"
               onClick={onKeep}
-              className="cursor-pointer rounded-md border border-hairline-strong bg-surface-high px-2.5 py-1 text-[0.72rem] font-semibold text-ink-mute transition-colors hover:border-ink-faint"
+              className="flex cursor-pointer items-center gap-1 rounded-md border border-hairline-strong bg-surface-high px-2.5 py-1 text-[0.72rem] font-semibold text-ink-mute transition-colors hover:border-ink-faint"
             >
+              <CloseIcon className="h-3.5 w-3.5" />
               {lang.results.keepIt}
             </button>
           </div>
@@ -66,12 +68,13 @@ function FixCard({
 export default function CatalogTable({
   items,
   onApplyFix,
+  onlyIssues,
 }: {
   items: CatalogItem[];
   onApplyFix: (index: number, price: number) => void;
+  onlyIssues: boolean;
 }) {
   const [states, setStates] = useState<Record<number, RowState>>({});
-  const [onlyIssues, setOnlyIssues] = useState(false);
 
   const rows = items
     .map((item, index) => ({ item, index }))
@@ -79,24 +82,8 @@ export default function CatalogTable({
       onlyIssues ? Boolean(item.issue) && states[index] !== "fixed" : true
     );
 
-  const pendingIssues = items.filter(
-    (item, index) => item.issue && !states[index]
-  ).length;
-
   return (
     <div className="flex flex-col gap-3">
-      {items.some((item) => item.issue) && (
-        <label className="flex w-fit cursor-pointer items-center gap-2 text-[0.8rem] font-medium text-ink-mute">
-          <input
-            type="checkbox"
-            checked={onlyIssues}
-            onChange={(event) => setOnlyIssues(event.target.checked)}
-            className="h-4 w-4 cursor-pointer accent-[var(--color-accent)]"
-          />
-          {lang.results.onlyIssues} ({pendingIssues})
-        </label>
-      )}
-
       <div className="panel overflow-x-auto">
         <table className="w-full min-w-[600px] border-collapse text-left">
           <thead>

@@ -14,6 +14,7 @@ import {
   TagIcon,
 } from "@/components/Icons";
 import LeadGate from "@/components/LeadGate";
+import ResultStats from "@/components/ResultStats";
 import ParsingSteps from "@/components/ParsingSteps";
 import { SAMPLE_DISCLAIMER, SAMPLE_LIST } from "@/config/product";
 import { lang } from "@/lang";
@@ -92,6 +93,7 @@ export default function Digitizer() {
   const [error, setError] = useState<string | null>(null);
   const [unlocked, setUnlocked] = useState(false);
   const [usedSample, setUsedSample] = useState(false);
+  const [onlyIssues, setOnlyIssues] = useState(false);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -214,47 +216,22 @@ export default function Digitizer() {
           <section className="flex flex-col gap-5">
             <SectionHead icon={<ListIcon />} title={lang.results.title} />
 
-            <div className="grid grid-cols-3 gap-3 max-sm:grid-cols-1">
-              <Stat
-                value={result.items.length}
-                label={lang.results.itemsLabel}
-                icon={<ListIcon />}
-                tone="ink"
-              />
-              <Stat
-                value={issues}
-                label={lang.results.issuesLabel}
-                icon={<AlertIcon />}
-                tone={issues > 0 ? "alert" : "ink"}
-              />
-              <Stat
-                value={promos}
-                label={lang.results.promoLabel}
-                icon={<TagIcon />}
-                tone="brand"
-              />
-            </div>
+            <ResultStats
+              total={result.items.length}
+              issues={issues}
+              promos={promos}
+              onlyIssues={onlyIssues}
+              onToggleIssues={() => setOnlyIssues((value) => !value)}
+            />
 
-            {issues > 0 && (
-              <div className="flex gap-3 rounded-xl border border-warn/40 bg-warn-soft px-5 py-4">
-                <AlertIcon className="mt-0.5 h-5 w-5 shrink-0 text-warn" />
-                <div>
-                  <p className="text-[0.9rem] font-bold text-warn">
-                    {lang.results.issuesTitle}
-                  </p>
-                  <p className="mt-1 text-[0.86rem] leading-relaxed text-ink-mute">
-                    {lang.results.issuesBody}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            <CatalogTable items={result.items} onApplyFix={applyFix} />
+            <CatalogTable
+              items={result.items}
+              onApplyFix={applyFix}
+              onlyIssues={onlyIssues}
+            />
           </section>
 
           <BroadcastPlan plan={result.plan} />
-
-          <BeforeYouSend />
 
           {unlocked ? (
             <div className="flex flex-col gap-4">
@@ -276,6 +253,8 @@ export default function Digitizer() {
               onUnlocked={() => setUnlocked(true)}
             />
           )}
+
+          <BeforeYouSend />
         </div>
       )}
     </div>

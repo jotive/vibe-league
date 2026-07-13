@@ -40,7 +40,9 @@ export const es = {
     issuesTitle: "Encontramos cosas que conviene revisar",
     issuesBody:
       "No las corregimos solos: tu proveedor es quien manda. Te mostramos el arreglo y tú decides si lo aplicas.",
-    onlyIssues: "Ver solo lo que hay que revisar",
+    onlyIssues: "Ver solo estas",
+    showAll: "Ver todo el catálogo",
+    allClear: "Todo en orden",
     fixIt: "Corregir",
     keepIt: "Está bien así",
     suggested(value: string): string {
