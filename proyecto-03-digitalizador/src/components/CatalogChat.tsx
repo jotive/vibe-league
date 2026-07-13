@@ -75,19 +75,19 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
   }
 
   return (
-    <section className="flex animate-fade-up flex-col gap-4 rounded-2xl border border-border bg-white p-6 max-md:p-4">
+    <section className="flex animate-fade-up flex-col gap-4 rounded-2xl border border-hairline bg-surface-high p-6 max-md:p-4">
       <div className="flex flex-col gap-1">
         <h2 className="text-xl font-extrabold tracking-tight text-ink">
           {lang.chat.title}
         </h2>
-        <p className="text-[0.88rem] text-text-muted">{lang.chat.subtitle}</p>
+        <p className="text-[0.88rem] text-ink-mute">{lang.chat.subtitle}</p>
       </div>
 
       <div
         ref={scrollRef}
         role="log"
         aria-live="polite"
-        className="flex h-[300px] flex-col gap-2.5 overflow-y-auto rounded-xl bg-paper p-4"
+        className="flex h-[300px] flex-col gap-2.5 overflow-y-auto rounded-xl bg-surface p-4"
       >
         {messages.length === 0 && (
           <div className="flex flex-wrap gap-2">
@@ -96,7 +96,7 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
                 key={suggestion}
                 type="button"
                 onClick={() => ask(suggestion)}
-                className="cursor-pointer rounded-full border border-border-strong bg-white px-3 py-1.5 text-[0.78rem] text-text-muted transition-colors hover:border-brand hover:text-brand"
+                className="cursor-pointer rounded-full border border-hairline-strong bg-surface-high px-3 py-1.5 text-[0.78rem] text-ink-mute transition-colors hover:border-accent hover:text-accent"
               >
                 {suggestion}
               </button>
@@ -110,7 +110,7 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
             className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-[0.86rem] leading-relaxed ${
               message.role === "user"
                 ? "self-end rounded-br-sm bg-ink text-white"
-                : "self-start rounded-bl-sm border border-border bg-white text-text"
+                : "self-start rounded-bl-sm border border-hairline bg-surface-high text-ink"
             }`}
           >
             {message.content}
@@ -118,13 +118,13 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
         ))}
 
         {thinking && (
-          <div className="self-start rounded-2xl rounded-bl-sm border border-border bg-white px-4 py-3">
+          <div className="self-start rounded-2xl rounded-bl-sm border border-hairline bg-surface-high px-4 py-3">
             <span className="sr-only">{lang.chat.thinking}</span>
             <span className="flex gap-1.5" aria-hidden>
               {[0, 1, 2].map((dot) => (
                 <span
                   key={dot}
-                  className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-brand"
+                  className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-accent"
                   style={{ animationDelay: `${dot * 0.18}s` }}
                 />
               ))}
@@ -140,18 +140,18 @@ export default function CatalogChat({ items }: { items: CatalogItem[] }) {
           onChange={(event) => setInput(event.target.value)}
           placeholder={lang.chat.placeholder}
           aria-label={lang.chat.placeholder}
-          className="flex-1 rounded-lg border border-border-strong bg-white px-3.5 py-2.5 text-[0.9rem] outline-none transition-colors placeholder:text-text-faint focus:border-brand"
+          className="flex-1 rounded-lg border border-hairline-strong bg-surface-high px-3.5 py-2.5 text-[0.9rem] outline-none transition-colors placeholder:text-ink-faint focus:border-accent"
         />
         <button
           type="submit"
           disabled={thinking || !input.trim()}
-          className="shrink-0 cursor-pointer rounded-lg bg-brand px-5 py-2.5 text-[0.88rem] font-bold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-50"
+          className="shrink-0 cursor-pointer rounded-lg bg-accent px-5 py-2.5 text-[0.88rem] font-bold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
         >
           {lang.chat.send}
         </button>
       </form>
 
-      <p className="text-[0.75rem] italic text-text-faint">
+      <p className="text-[0.75rem] italic text-ink-faint">
         {lang.chat.disclaimer}
       </p>
     </section>
