@@ -18,6 +18,7 @@ export const leadSchema = z.object({
     .string()
     .trim()
     .regex(WHATSAPP_PATTERN, "Escribe un número de WhatsApp válido."),
+  email: z.string().trim().email("Ese correo no parece válido.").max(120).optional().or(z.literal("")),
   businessName: z.string().trim().max(120).optional().or(z.literal("")),
   niche: z.enum(NICHES, { message: "Elige el nicho de tu tienda." }),
   parsedItems: z.number().int().min(0).max(1000),

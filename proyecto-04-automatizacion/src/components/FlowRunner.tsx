@@ -91,6 +91,7 @@ export default function FlowRunner({ onFinished }: { onFinished: () => void }) {
   const [values, setValues] = useState({
     fullName: "",
     whatsapp: "",
+    email: "",
     businessName: "",
     niche: "",
     dailyMessages: "",
@@ -177,6 +178,20 @@ export default function FlowRunner({ onFinished }: { onFinished: () => void }) {
             aria-label={lang.trigger.whatsapp}
             className={INPUT}
           />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <input
+            type="email"
+            value={values.email}
+            onChange={(e) => update("email", e.target.value)}
+            placeholder={lang.trigger.emailPlaceholder}
+            aria-label={lang.trigger.email}
+            className={INPUT}
+          />
+          <span className="text-[0.72rem] text-ink-faint">
+            {lang.trigger.emailHint}
+          </span>
         </div>
 
         <input

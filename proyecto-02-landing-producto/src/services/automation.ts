@@ -13,6 +13,7 @@ export function triggerAutomation(leadId: number, lead: LeadInput): void {
     projectSlug: PROJECT_SLUG,
     fullName: lead.fullName,
     whatsapp: lead.whatsapp,
+    email: lead.email || null,
     businessName: lead.businessName || null,
     niche: lead.niche,
     dailyMessages: lead.dailyMessages || null,

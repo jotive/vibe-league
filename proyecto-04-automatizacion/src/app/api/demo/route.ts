@@ -13,6 +13,7 @@ const WHATSAPP_PATTERN = /^[\d\s+()-]{7,20}$/;
 const demoSchema = z.object({
   fullName: z.string().trim().min(2).max(80),
   whatsapp: z.string().trim().regex(WHATSAPP_PATTERN),
+  email: z.string().trim().email().optional().or(z.literal("")),
   businessName: z.string().trim().max(120).optional().or(z.literal("")),
   niche: z.string().trim().min(1).max(60),
   dailyMessages: z.string().trim().max(60).optional().or(z.literal("")),
@@ -53,12 +54,13 @@ export async function POST(request: NextRequest) {
 
     const rows = await sql`
       insert into leads (
-        project_slug, full_name, whatsapp, business_name, niche,
+        project_slug, full_name, whatsapp, email, business_name, niche,
         daily_messages, catalog_location, catalog_size, top_question
       ) values (
         ${DEMO_PROJECT_SLUG},
         ${lead.fullName},
         ${`${lead.whatsapp.replace(/\D/g, "")}-${suffix}`},
+        ${emptyToNull(lead.email)},
         ${emptyToNull(lead.businessName)},
         ${lead.niche},
         ${emptyToNull(lead.dailyMessages)},
@@ -76,6 +78,7 @@ export async function POST(request: NextRequest) {
       projectSlug: DEMO_PROJECT_SLUG,
       fullName: lead.fullName,
       whatsapp: lead.whatsapp,
+      email: emptyToNull(lead.email),
       businessName: emptyToNull(lead.businessName),
       niche: lead.niche,
       dailyMessages: emptyToNull(lead.dailyMessages),

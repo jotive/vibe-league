@@ -31,12 +31,13 @@ export async function saveLead(lead: LeadInput): Promise<SaveLeadResult> {
 
   const rows = await sql`
     insert into leads (
-      project_slug, full_name, whatsapp, business_name, niche,
+      project_slug, full_name, whatsapp, email, business_name, niche,
       parsed_items, parsed_issues
     ) values (
       ${PROJECT_SLUG},
       ${lead.fullName},
       ${normalizeWhatsapp(lead.whatsapp)},
+      ${emptyToNull(lead.email)},
       ${emptyToNull(lead.businessName)},
       ${lead.niche},
       ${lead.parsedItems},

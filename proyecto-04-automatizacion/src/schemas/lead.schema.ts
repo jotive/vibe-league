@@ -5,6 +5,7 @@ export const leadPayloadSchema = z.object({
   projectSlug: z.string().min(1),
   fullName: z.string().min(1),
   whatsapp: z.string().min(1),
+  email: z.string().email().nullable().optional(),
   businessName: z.string().nullable().optional(),
   niche: z.string().nullable().optional(),
   dailyMessages: z.string().nullable().optional(),

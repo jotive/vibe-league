@@ -21,6 +21,7 @@ export default function LeadGate({
   const [values, setValues] = useState({
     fullName: "",
     whatsapp: "",
+    email: "",
     businessName: "",
     niche: "",
   });
@@ -124,6 +125,27 @@ export default function LeadGate({
           {errors.whatsapp && (
             <span role="alert" className="text-[0.72rem] text-error">
               {errors.whatsapp}
+            </span>
+          )}
+        </label>
+
+        <label className="flex flex-col gap-1.5">
+          <span className="text-[0.8rem] font-semibold">{lang.gate.email}</span>
+          <input
+            type="email"
+            value={values.email}
+            onChange={(e) => update("email", e.target.value)}
+            placeholder={lang.gate.emailPlaceholder}
+            autoComplete="email"
+            className={INPUT}
+          />
+          {errors.email ? (
+            <span role="alert" className="text-[0.72rem] text-error">
+              {errors.email}
+            </span>
+          ) : (
+            <span className="text-[0.72rem] text-ink-faint">
+              {lang.gate.emailHint}
             </span>
           )}
         </label>

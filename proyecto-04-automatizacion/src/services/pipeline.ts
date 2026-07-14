@@ -2,12 +2,14 @@ import { neon } from "@neondatabase/serverless";
 
 import { LeadPayload } from "@/schemas/lead.schema";
 
+import { sendWelcomeEmail } from "./email";
 import { qualifyLead } from "./qualifier";
 import { buildTelegramMessage, sendTelegram } from "./telegram";
 
 export const STEPS = [
   "Lead recibido",
   "Calificado con IA",
+  "Respondido al lead",
   "Guardado en el CRM",
   "Equipo notificado",
 ] as const;
@@ -84,6 +86,30 @@ export async function runPipeline(lead: LeadPayload): Promise<number> {
       Date.now() - qualifyStart
     );
 
+    const emailStart = Date.now();
+
+    try {
+      const sent = await sendWelcomeEmail(lead, qualification);
+
+      await logStep(
+        runId,
+        3,
+        STEPS[2],
+        "ok",
+        `Correo de bienvenida enviado a ${sent.to}`,
+        Date.now() - emailStart
+      );
+    } catch (error) {
+      await logStep(
+        runId,
+        3,
+        STEPS[2],
+        "error",
+        error instanceof Error ? error.message : String(error),
+        Date.now() - emailStart
+      );
+    }
+
     const crmStart = Date.now();
     const sql = db();
 
@@ -99,8 +125,8 @@ export async function runPipeline(lead: LeadPayload): Promise<number> {
 
     await logStep(
       runId,
-      3,
-      STEPS[2],
+      4,
+      STEPS[3],
       "ok",
       `Lead #${lead.leadId} actualizado: ${qualification.temperature}, siguiente paso "${qualification.nextAction}"`,
       Date.now() - crmStart
@@ -115,8 +141,8 @@ export async function runPipeline(lead: LeadPayload): Promise<number> {
 
       await logStep(
         runId,
-        4,
-        STEPS[3],
+        5,
+        STEPS[4],
         "ok",
         detail,
         Date.now() - notifyStart
@@ -124,8 +150,8 @@ export async function runPipeline(lead: LeadPayload): Promise<number> {
     } catch (error) {
       await logStep(
         runId,
-        4,
-        STEPS[3],
+        5,
+        STEPS[4],
         "error",
         error instanceof Error ? error.message : String(error),
         Date.now() - notifyStart

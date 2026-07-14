@@ -6,6 +6,10 @@ const TEMPERATURE_ICON: Record<string, string> = {
   frio: "🧊",
 };
 
+const COLOMBIA_CODE = "57";
+const COLOMBIA_LOCAL_LENGTH = 10;
+const MACHINE_ROOM_URL = "https://sala-de-maquinas-ia.vercel.app";
+
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -13,12 +17,23 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;");
 }
 
+function toWhatsappLink(whatsapp: string): string {
+  const digits = whatsapp.replace(/\D/g, "");
+
+  const international =
+    digits.length === COLOMBIA_LOCAL_LENGTH && digits.startsWith("3")
+      ? `${COLOMBIA_CODE}${digits}`
+      : digits;
+
+  return `https://wa.me/${international}`;
+}
+
 export function buildTelegramMessage(
   lead: LeadPayload,
   qualification: Qualification
 ): string {
   const icon = TEMPERATURE_ICON[qualification.temperature] ?? "•";
-  const whatsappLink = `https://wa.me/${lead.whatsapp.replace(/\D/g, "")}`;
+  const whatsappLink = toWhatsappLink(lead.whatsapp);
 
   const facts = [
     lead.niche ? `Nicho: ${escapeHtml(lead.niche)}` : null,
@@ -44,10 +59,10 @@ export function buildTelegramMessage(
     "",
     `<b>Siguiente paso:</b> ${escapeHtml(qualification.nextAction)}`,
     "",
-    `<b>Mensaje sugerido:</b>`,
+    `<b>Mensaje sugerido</b> (toca para copiarlo):`,
     `<code>${escapeHtml(qualification.whatsappMessage)}</code>`,
     "",
-    `<a href="${whatsappLink}">Escribirle por WhatsApp</a>`,
+    `<a href="${whatsappLink}">📲 Escribirle por WhatsApp</a>  ·  <a href="${MACHINE_ROOM_URL}">Ver la ejecución</a>`,
   ]
     .filter((line) => line !== null)
     .join("\n");

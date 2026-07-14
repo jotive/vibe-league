@@ -24,6 +24,10 @@ export const es = {
         body: "Un modelo lee sus respuestas y le pone un puntaje de 0 a 100, decide si está caliente, tibio o frío, y explica por qué.",
       },
       {
+        title: "Respondido al lead",
+        body: "Le llega un correo escrito por la IA citando lo que él acaba de responder. Ya no espera: la respuesta sale en segundos.",
+      },
+      {
         title: "Guardado en el CRM",
         body: "El puntaje, el motivo y el siguiente paso quedan escritos en Postgres, junto al lead.",
       },
@@ -41,6 +45,10 @@ export const es = {
     fullNamePlaceholder: "Andrés Gómez",
     whatsapp: "WhatsApp",
     whatsappPlaceholder: "300 123 4567",
+    email: "Tu correo",
+    emailPlaceholder: "tu@correo.com",
+    emailHint:
+      "Pon tu correo real: la automatización te va a responder de verdad, en segundos.",
     businessName: "Nombre de tu tienda",
     businessNamePlaceholder: "Acuarios del Norte",
     niche: "¿Qué vendes?",
