@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-stage: #101a16;
+  --color-stage-soft: #17251f;
+
+  --color-canvas: #fbfaf4;
+  --color-surface: #f2eee4;
+  --color-white: #ffffff;
+
+  --color-ink: #1a1917;
+  --color-ink-mute: #6b7a71;
+  --color-ink-faint: #98a49c;
+  --color-hairline: #e6e1d6;
+  --color-hairline-strong: #cfc8b8;
+
+  --color-accent: #0e5e52;
+  --color-accent-hover: #14776a;
+  --color-accent-soft: #e0efeb;
+
+  --color-alert: #d97706;
+  --color-alert-soft: #fdf1e3;
+  --color-ok: #2f8f46;
+  --color-ok-soft: #e7f5ec;
+  --color-live: #4ade80;
+
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Consolas, monospace;
+
+  --animate-slide-in: slide-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.4s cubic-bezier(0.34, 1.5, 0.64, 1) both;
+  --animate-pulse-live: pulse-live 2s ease-in-out infinite;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-stage text-canvas antialiased;
+    background-image: radial-gradient(
+      ellipse 70% 50% at 50% 0%,
+      rgba(14, 94, 82, 0.28),
+      transparent
+    );
+    background-attachment: fixed;
+    font-feature-settings: "cv01", "ss03";
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-live);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .shell {
+    @apply mx-auto w-full max-w-[1140px] px-6 max-md:px-4;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .scroll-slim {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-hairline-strong) transparent;
+  }
+
+  .scroll-slim::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scroll-slim::-webkit-scrollbar-thumb {
+    background-color: var(--color-hairline-strong);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-in,
+    .animate-fade-up,
+    .animate-pop,
+    .animate-pulse-live {
+      animation: none;
+    }
+  }
+}
